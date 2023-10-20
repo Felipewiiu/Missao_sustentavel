@@ -1,4 +1,5 @@
-import Home from 'components/home';
+
+import MainScreen from './components/mainScreen';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -10,7 +11,7 @@ export default function AppRoutes() {
     <main  >
       <Router>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<MainScreen/>}/>
         </Routes>
       </Router>
       
