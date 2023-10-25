@@ -1,0 +1,46 @@
+@import '/src/styles/base.scss';
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1440px;
+    max-height: 1024px;
+    width: 1440px;
+    height: 100vh;
+    background-image: url("../../assets/TelaInício.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: solid 0px 1px 0px 1px blueviolet;
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 29rem;
+        height: 4.75rem;
+        background-color: $green;
+        border-radius: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: all 200ms ease-in-out;
+        p {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3B3460;
+            
+
+        }
+
+        &:hover {
+            background-color: #58d0ff;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+}
