@@ -17,9 +17,36 @@
         background-color: red;
         display: flex;
         justify-content: flex-end;
+       
 
+    }
 
+    .trash {
+        animation: spinneElement;
+        animation-duration: 3000ms;
+        animation-iteration-count: infinite;
+        // background-color: red;
+        height: 300px;
+    }   
 
+    .planet{
+        position: absolute;
+    }
+
+    @keyframes spinneElement {
+        // 25% {
+        //     transform: rotate(180deg);
+        // }
+        50% {
+            transform: rotate(180deg);
+        }
+        // 75% {
+        //     transform: rotate(180deg);
+        // }
+
+        100% {
+            transform: rotate(180deg);
+        }
     }
 
 }
