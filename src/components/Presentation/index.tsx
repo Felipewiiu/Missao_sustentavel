@@ -1,7 +1,8 @@
 import React from 'react';
 import Styles from './Presentation.module.scss';
-import { ReactComponent as Trash } from '../../assets/Trash.svg';
-import { ReactComponent as Planet } from '../../assets/planeta 1.svg';
+import { ReactComponent as Trash } from '../../assets/elements.svg';
+import planet from '../../assets/planeta 2.png';
+import robo from '../../assets/robo.svg';
 
 export default function Presentation() {
   const tela = screen.width;
@@ -9,13 +10,19 @@ export default function Presentation() {
   return (
     <div className={Styles.container}>
       <div className={Styles.container__banner}>
-        <div>
 
-          <Planet className={Styles.planet} />
+        <div className={Styles.container__image}>
+          <img src={planet} alt="Planeta Terra" className={Styles.planet} />
+          <Trash className={Styles.trash} />
+
         </div>
-        <div className={Styles.trash}>
-          <Trash />
+        <div className={Styles.container__dialogue}>
+          <img src={robo} alt="Robo" className={Styles.robo} />
+          <div className={Styles.container__text}>
+
+          </div>
         </div>
+
 
       </div>
     </div>

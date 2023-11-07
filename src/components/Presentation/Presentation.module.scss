@@ -14,38 +14,67 @@
         background-size: cover;
         height: 100vh;
         width: 1000px;
-        background-color: red;
         display: flex;
         justify-content: flex-end;
-       
-
+        position: relative;
+        
     }
 
-    .trash {
-        animation: spinneElement;
-        animation-duration: 3000ms;
-        animation-iteration-count: infinite;
-        // background-color: red;
-        height: 300px;
-    }   
+    .container__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        // background-color: aqua;
+        height: 285px;
+        .trash {
+            animation: spinneElement 5s linear infinite;
+            animation-duration: 17000ms;
+            
+            height: 300px;
+        } 
 
-    .planet{
-        position: absolute;
+        .planet {
+            position: absolute;
+            // background-color: greenyellow;
+        }
     }
-
+    
     @keyframes spinneElement {
-        // 25% {
+        // 0% {
+        //     transform: rotate(360deg);
+        // }
+        // 50% {
         //     transform: rotate(180deg);
         // }
-        50% {
-            transform: rotate(180deg);
-        }
         // 75% {
         //     transform: rotate(180deg);
         // }
 
         100% {
-            transform: rotate(180deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    .container__dialogue {
+        // background-color: red;
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        bottom: 0px;
+
+        .robo {
+            transform: translateY(-130px);
+            // background-color: green;
+        }
+
+        .container__text{
+            background-color: rgb(71, 71, 179);
+            width: 50%;
+            height: 100px;
+            transform: translateY(-130px);
+            margin-left: 50px;
+            border: 10px solid #FFF;
         }
     }
 
