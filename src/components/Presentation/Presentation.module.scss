@@ -17,7 +17,7 @@
         display: flex;
         justify-content: flex-end;
         position: relative;
-        
+
     }
 
     .container__image {
@@ -27,19 +27,20 @@
         position: relative;
         // background-color: aqua;
         height: 285px;
+
         .trash {
             animation: spinneElement 5s linear infinite;
             animation-duration: 17000ms;
-            
+
             height: 300px;
-        } 
+        }
 
         .planet {
             position: absolute;
             // background-color: greenyellow;
         }
     }
-    
+
     @keyframes spinneElement {
         // 0% {
         //     transform: rotate(360deg);
@@ -65,17 +66,48 @@
 
         .robo {
             transform: translateY(-130px);
-            // background-color: green;
         }
 
-        .container__text{
-            background-color: rgb(71, 71, 179);
+        .container__text {
             width: 50%;
             height: 100px;
             transform: translateY(-130px);
             margin-left: 50px;
             border: 10px solid #FFF;
+
+            p {
+                padding-left: 1rem;
+                color: $green;
+                font-family: $font-title;
+                font-size: 0.8rem;
+                font-weight: 400;
+                line-height: 24px;
+            }
+
+            .next {
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                transform: translateX(20px);
+                margin-top: 10px;
+                position: absolute;
+                right: 0px;
+                animation: nextBtn 700ms alternate infinite;
+
+            }
+
+            @keyframes nextBtn {
+                0% {
+                    transform: translateX(-10px);
+                }
+
+                100% {
+                    transform:  translateX(10px);
+                }
+            }
         }
+
+
     }
 
 }
