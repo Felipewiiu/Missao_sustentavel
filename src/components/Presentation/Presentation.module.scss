@@ -66,6 +66,7 @@
 
         .robo {
             transform: translateY(-130px);
+            animation: textchange 2000ms ease-in-out;
         }
 
         .container__text {
@@ -82,6 +83,18 @@
                 font-size: 0.8rem;
                 font-weight: 400;
                 line-height: 24px;
+                animation: textchange 2000ms ease-in-out;
+                
+            }
+
+            @keyframes textchange {
+                0% {
+                    opacity: 0%;
+                }
+
+                100% {
+                    opacity: 100%;
+                }
             }
 
             .next {
