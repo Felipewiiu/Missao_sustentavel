@@ -17,7 +17,7 @@ export default function Presentation() {
   const changeText = () => {
     setCount(count + 1);
     console.log(count);
-    if (count >= 1) navigate('/');
+    if (count >= 2) navigate('/game');
   };
 
   return (
