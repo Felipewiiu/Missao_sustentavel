@@ -59,7 +59,7 @@
             display: flex;
             justify-content: center;
             // background-color: rgba(0, 0, 255, 0.41);
-            transform: translateY(-26px);
+            transform: translateY(-43px);
 
             .limt_moviment{
                 width: 73.8%;
@@ -67,8 +67,8 @@
                 // background-color: red;
 
                 .trash_moviment {
-                    width: 4.5rem;
-                    height: 5.5rem;
+                    width: 6.5rem;
+                    height: 7rem;
                 }
             }
         }
@@ -87,10 +87,10 @@
                 height: 7rem;
                 margin-bottom: 1rem;
                 // background-color: green;
-                // .trash {
-                //     width: 4rem;
-                //     height: 7rem;
-                // }
+                .trash {
+                    cursor: pointer;
+                    
+                }
             }
 
             
