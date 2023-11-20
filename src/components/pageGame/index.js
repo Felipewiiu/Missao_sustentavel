@@ -5,6 +5,7 @@ import PaperTrash from '../../assets/paperTrash.png';
 import ironTrash from '../../assets/ironTrash.png';
 import plasticTrash from '../../assets/plasticTrash.png';
 import organicTrash from '../../assets/organicTrash.png';
+import trashGroup from './trashGroup.json';
 
 
 export default function PageGame() {
@@ -13,13 +14,12 @@ export default function PageGame() {
   const [type, setType] = useState('plasticTrash');
   const [currentImg, setCurrentImg] = useState(plasticTrash);
 
-  // type === 'organicTrash' ? setCurrentImg(organicTrash): '';
 
-  // if (type === 'organicTrash') {
-  //   setCurrentImg(organicTrash);
-  //   setType('');
-    
-  // }
+  // logica de aleatoriedade
+  const elementos = trashGroup.map((elementos) => {
+    return elementos.path;
+  });
+
 
   switch (type) {
   case 'organicTrash':
@@ -48,7 +48,7 @@ export default function PageGame() {
 
     switch (event.key) {
     case 'd':
-      location >= 670 ? '' : setLocation(location + 10);
+      location >= 640 ? '' : setLocation(location + 10);
       break;
 
     case 'a':
@@ -56,7 +56,7 @@ export default function PageGame() {
       break;
 
     case 'ArrowRight':
-      location >= 670 ? '' : setLocation(location + 10);
+      location >= 640 ? '' : setLocation(location + 10);
       break;
 
     case 'ArrowLeft':
@@ -73,6 +73,17 @@ export default function PageGame() {
   return (
     <div className={Styles.container} tabIndex={0} onKeyDown={handleKeyDown}>
       <div className={Styles.imgPageGame}>
+        <div className={Styles.beltTrash}>
+          <div className={Styles.beltLimit}>
+
+            <img 
+              src={elementos[5]} 
+              alt="" 
+              className={Styles.elementos}
+            />
+
+          </div>
+        </div>
         <div className={Styles.container__topBar}>
           <div className={Styles.points}>
             <p>0 pt</p>
@@ -101,20 +112,20 @@ export default function PageGame() {
               className={Styles.trash}
               onClick={() => changeTrash('plasticTrash')}
             />
-            <img 
-              src={PaperTrash} alt="Papel" 
+            <img
+              src={PaperTrash} alt="Papel"
               className={Styles.trash}
               onClick={() => changeTrash('paperTrash')}
             />
           </div>
           <div className={Styles.container__line}>
-            <img 
-              src={organicTrash} alt="Orgânico" 
-              className={Styles.trash} 
+            <img
+              src={organicTrash} alt="Orgânico"
+              className={Styles.trash}
               onClick={() => changeTrash('organicTrash')}
             />
-            <img 
-              src={ironTrash} alt="Ferro" 
+            <img
+              src={ironTrash} alt="Ferro"
               className={Styles.trash}
               onClick={() => changeTrash('ironTrash')}
             />

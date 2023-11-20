@@ -1,0 +1,37 @@
+[
+    {
+        "id": 0,
+        "path": "../../assets/trashFaller/barrel.png",
+        "name": "barril"
+    },
+    {
+        "id": 1,
+        "path": "../../assets/trashFaller/book.png",
+        "name": "livro"
+    },
+    {
+        "id": 2,
+        "path": "../../assets/trashFaller/cardboard.png",
+        "name": "papelão"
+    },
+    {
+        "id": 3,
+        "path": "../../assets/trashFaller/plasticCup.png",
+        "name": "copo de platico"
+    },
+    {
+        "id": 4,
+        "path": "../../assets/trashFaller/rubble.png",
+        "name": "entulho"
+    },
+    {
+        "id": 5,
+        "path": "../../assets/trashFaller/tin.png",
+        "name": "lata"
+    },
+    {
+        "id": 6,
+        "path": "../../assets/trashFaller/wood.png",
+        "name": "madeira"
+    }
+]
