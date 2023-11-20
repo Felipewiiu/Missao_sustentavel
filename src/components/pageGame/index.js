@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Styles from './pageGame.module.scss';
 import { ReactComponent as Heart } from '../../assets/heart.svg';
 import PaperTrash from '../../assets/paperTrash.png';
@@ -6,6 +6,7 @@ import ironTrash from '../../assets/ironTrash.png';
 import plasticTrash from '../../assets/plasticTrash.png';
 import organicTrash from '../../assets/organicTrash.png';
 import trashGroup from './trashGroup.json';
+import {getRandomNumber} from '../../util/randomNumbers';
 
 
 export default function PageGame() {
@@ -13,12 +14,40 @@ export default function PageGame() {
   const [location, setLocation] = useState(10);
   const [type, setType] = useState('plasticTrash');
   const [currentImg, setCurrentImg] = useState(plasticTrash);
+  let [locationY, setLocaionY] = useState(-30);
+  let [locationX, setLocaionX] = useState(25);
+ 
+  
 
+  
+  
+  const alerta = () => {
+    let random = getRandomNumber(0, 670);
+    console.log(random);
+    setLocaionX(random);
+    setLocaionY(-30);
+    
+  };
+
+  useEffect(() => {
+    const fallTrashInterval = setInterval(() => {
+      setLocaionY(locationY => locationY + 30);
+    }, 100);
+    
+    locationY === 600 ? clearInterval(fallTrashInterval) & alerta(): '';
+
+    return () => clearInterval(fallTrashInterval);
+   
+  }, [locationY]);
+
+
+  
 
   // logica de aleatoriedade
   const elementos = trashGroup.map((elementos) => {
-    return elementos.path;
+    return elementos;
   });
+
 
 
   switch (type) {
@@ -44,7 +73,6 @@ export default function PageGame() {
   }
 
   const handleKeyDown = event => {
-    console.log('User pressed: ', event.key);
 
     switch (event.key) {
     case 'd':
@@ -77,9 +105,13 @@ export default function PageGame() {
           <div className={Styles.beltLimit}>
 
             <img 
-              src={elementos[5]} 
+              src={elementos[5].path} 
               alt="" 
               className={Styles.elementos}
+              style={{ 
+                'transform': `translate(${locationX}px, ${locationY}px)`,
+                
+              }}
             />
 
           </div>

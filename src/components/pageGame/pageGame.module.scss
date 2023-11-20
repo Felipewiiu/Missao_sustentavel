@@ -37,7 +37,12 @@
             .beltLimit {
                 width: 73.8%;
                 height: 8rem;
-                background-color: aqua;
+                // background-color: aqua;
+
+                .elementos {
+                    width: 4rem;
+                    height: 4rem;
+                }
             }
         }
 
@@ -75,7 +80,7 @@
             height: 5rem;
             display: flex;
             justify-content: center;
-            background-color: rgba(0, 0, 255, 0.41);
+            // background-color: rgba(0, 0, 255, 0.41);
             transform: translateY(-43px);
 
             .limt_moviment {
