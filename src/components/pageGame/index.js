@@ -6,27 +6,31 @@ import ironTrash from '../../assets/ironTrash.png';
 import plasticTrash from '../../assets/plasticTrash.png';
 import organicTrash from '../../assets/organicTrash.png';
 import trashGroup from './trashGroup.json';
-import {getRandomNumber} from '../../util/randomNumbers';
+import { getRandomNumber } from '../../util/randomNumbers';
 
 
 export default function PageGame() {
 
-  const [location, setLocation] = useState(10);
+  const [location, setLocation] = useState(1);
   const [type, setType] = useState('plasticTrash');
   const [currentImg, setCurrentImg] = useState(plasticTrash);
   let [locationY, setLocaionY] = useState(-30);
   let [locationX, setLocaionX] = useState(25);
   const [objectType, setObjectType] = useState(0);
   let random = getRandomNumber(0, 670);
-  let randomObject = getRandomNumber(0,5);
- 
-  const targetOjbect = useRef(null);
-  console.log(targetOjbect.current);
+  let randomObject = getRandomNumber(0, 5);
 
-  
-  
+  const targetOjbect = useRef(null);
+  // console.log(targetOjbect.current);
+
+  if (location === locationX) {
+    console.log('Os elemento se encontraram' + location + '' + locationX);
+  }
+
+
+  console.log(location);
+
   const alert = () => {
-    console.log(random);
     setLocaionX(random);
     setLocaionY(-30);
     setObjectType(randomObject);
@@ -34,17 +38,17 @@ export default function PageGame() {
 
   useEffect(() => {
     const fallTrashInterval = setInterval(() => {
-      setLocaionY(locationY => locationY + 10);
+      setLocaionY(locationY => locationY + 1);
     }, 100);
-    
-    locationY === 600 ? clearInterval(fallTrashInterval) & alert(): '';
+
+    locationY === 600 ? clearInterval(fallTrashInterval) & alert() : '';
 
     return () => clearInterval(fallTrashInterval);
-   
+
   }, [locationY]);
 
 
-  
+
 
   // logica de aleatoriedade
   const elementos = trashGroup.map((elementos) => {
@@ -79,19 +83,19 @@ export default function PageGame() {
 
     switch (event.key) {
     case 'd':
-      location >= 640 ? '' : setLocation(location + 10);
+      location >= 640 ? '' : setLocation(location + 1);
       break;
 
     case 'a':
-      location < 10 ? '' : setLocation(location - 10);
+      location < 10 ? '' : setLocation(location - 1);
       break;
 
     case 'ArrowRight':
-      location >= 640 ? '' : setLocation(location + 10);
+      location >= 640 ? '' : setLocation(location + 1);
       break;
 
     case 'ArrowLeft':
-      location < 10 ? '' : setLocation(location - 10);
+      location < 10 ? '' : setLocation(location - 1);
       break;
     }
   };
@@ -107,12 +111,13 @@ export default function PageGame() {
         <div className={Styles.beltTrash}>
           <div className={Styles.beltLimit}>
 
-            <img 
-              src={elementos[objectType].path} 
-              alt="" 
+            <img
+              src={elementos[objectType].path}
+              alt=""
               className={Styles.elementos}
-              style={{ 
-                'transform': `translate(${locationX}px, ${locationY}px)`}}
+              style={{
+                'transform': `translate(${locationX}px, ${locationY}px)`
+              }}
               ref={targetOjbect}
             />
 
@@ -120,7 +125,7 @@ export default function PageGame() {
         </div>
         <div className={Styles.container__topBar}>
           <div className={Styles.points}>
-            <p>0 pt</p>
+            <p>0 pt {locationX}  </p>
           </div>
           <div className={Styles.heart}>
             <Heart />
