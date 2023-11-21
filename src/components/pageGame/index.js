@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Styles from './pageGame.module.scss';
 import { ReactComponent as Heart } from '../../assets/heart.svg';
 import PaperTrash from '../../assets/paperTrash.png';
@@ -16,25 +16,28 @@ export default function PageGame() {
   const [currentImg, setCurrentImg] = useState(plasticTrash);
   let [locationY, setLocaionY] = useState(-30);
   let [locationX, setLocaionX] = useState(25);
+  const [objectType, setObjectType] = useState(0);
+  let random = getRandomNumber(0, 670);
+  let randomObject = getRandomNumber(0,5);
  
-  
+  const targetOjbect = useRef(null);
+  console.log(targetOjbect.current);
 
   
   
-  const alerta = () => {
-    let random = getRandomNumber(0, 670);
+  const alert = () => {
     console.log(random);
     setLocaionX(random);
     setLocaionY(-30);
-    
+    setObjectType(randomObject);
   };
 
   useEffect(() => {
     const fallTrashInterval = setInterval(() => {
-      setLocaionY(locationY => locationY + 30);
+      setLocaionY(locationY => locationY + 10);
     }, 100);
     
-    locationY === 600 ? clearInterval(fallTrashInterval) & alerta(): '';
+    locationY === 600 ? clearInterval(fallTrashInterval) & alert(): '';
 
     return () => clearInterval(fallTrashInterval);
    
@@ -105,13 +108,12 @@ export default function PageGame() {
           <div className={Styles.beltLimit}>
 
             <img 
-              src={elementos[5].path} 
+              src={elementos[objectType].path} 
               alt="" 
               className={Styles.elementos}
               style={{ 
-                'transform': `translate(${locationX}px, ${locationY}px)`,
-                
-              }}
+                'transform': `translate(${locationX}px, ${locationY}px)`}}
+              ref={targetOjbect}
             />
 
           </div>
