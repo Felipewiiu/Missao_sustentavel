@@ -19,7 +19,7 @@ export default function PageGame() {
   let [locationY, setLocaionY] = useState(-30);
   let [locationX, setLocaionX] = useState(30);
   const [objectType, setObjectType] = useState(0);
-  const [time, setTime] = useState(5);
+  const [time, setTime] = useState(10);
   let random = getRandomNumber(0, 640);
   let randomObject = getRandomNumber(0, 5);
   let [score, setScore] = useState(0);
@@ -27,24 +27,23 @@ export default function PageGame() {
 
   const parar = () => {
     setTime(0);
-    // console.log(time);
-    // console.log('posição Y do lixo  ' + locationY);
-    // console.log('posição X do lixo  ' + locationX);
-    // console.log('posição X do lixeira ' + locationTrash);
+    console.log(time);
+    console.log('posição Y do lixo  ' + locationY);
+    console.log('posição X do lixo  ' + locationX);
+    console.log('posição X do lixeira ' + locationTrash);
   };
 
 
  
 
   useEffect(()=> {
-    if( 
-      locationY >= 525 &&
-    locationY <= 555 &&
-    locationTrash + 25 >= locationX &&
-    locationTrash - 20 <= locationX)
-    {
+    if( locationY === 540 &&  locationTrash + 20 === locationX ){
       setScore(score +1);
       console.log(score);
+    } 
+    
+    if(locationY === 540 && locationX >= locationTrash + 50 && locationX <= locationTrash - 50) {
+      setScore(score +1);
     }
   },[locationY]);
 
@@ -156,7 +155,7 @@ export default function PageGame() {
         </div>
         <div className={Styles.container__topBar}>
           <div className={Styles.points}>
-            <p>0 pt {locationX}  </p>
+            <p>{score} pt <br/>{locationX}  <br/>lata de lixo {locationTrash} <br/> posição X {locationX}</p>
           </div>
           <div className={Styles.heart}>
             <Heart />
