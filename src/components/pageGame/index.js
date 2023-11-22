@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect} from 'react';
 import Styles from './pageGame.module.scss';
 import { ReactComponent as Heart } from '../../assets/heart.svg';
 import PaperTrash from '../../assets/paperTrash.png';
@@ -7,6 +7,7 @@ import plasticTrash from '../../assets/plasticTrash.png';
 import organicTrash from '../../assets/organicTrash.png';
 import trashGroup from './trashGroup.json';
 import { getRandomNumber } from '../../util/randomNumbers';
+import scoreUp from '../../assets/audio/1up.mp3';
 
 
 export default function PageGame() {
@@ -19,36 +20,28 @@ export default function PageGame() {
   let [locationY, setLocaionY] = useState(-30);
   let [locationX, setLocaionX] = useState(30);
   const [objectType, setObjectType] = useState(0);
-  const [time, setTime] = useState(10);
+  const [time] = useState(10);
   let random = getRandomNumber(0, 640);
   let randomObject = getRandomNumber(0, 5);
   let [score, setScore] = useState(0);
   
 
-  const parar = () => {
-    setTime(0);
-    console.log(time);
-    console.log('posição Y do lixo  ' + locationY);
-    console.log('posição X do lixo  ' + locationX);
-    console.log('posição X do lixeira ' + locationTrash);
-  };
 
-
- 
-
+  // função de colisão
   useEffect(()=> {
     if( locationY === 540 &&  locationTrash + 20 === locationX ){
       setScore(score +1);
       console.log(score);
     } 
     
-    if(locationY === 540 && locationX >= locationTrash + 50 && locationX <= locationTrash - 50) {
+    if(locationY === 540 && locationX >= locationTrash - 45 && locationX <= locationTrash + 70) {
+      new Audio(scoreUp).play();
       setScore(score +1);
     }
   },[locationY]);
 
   
-
+  // função de colisão do chão
   const alert = () => {
     setLocaionX(random);
     setLocaionY(-30);
@@ -126,17 +119,6 @@ export default function PageGame() {
 
   return (
     <div className={Styles.container} tabIndex={0} onKeyDown={handleKeyDown}>
-      <button
-        style={{
-          'zIndex': '3',
-          'position': 'absolute',
-          'botton': '500px'
-        }}
-        onClick={parar }
-      >
-        Parar
-      </button>
-      
       <div className={Styles.imgPageGame}>
         <div className={Styles.beltTrash}>
           <div className={Styles.beltLimit}>
