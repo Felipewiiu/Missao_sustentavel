@@ -19,13 +19,18 @@ export default function PageGame() {
   const [currentImg, setCurrentImg] = useState(plasticTrash);
   let [locationY, setLocaionY] = useState(-30);
   let [locationX, setLocaionX] = useState(30);
-  const [objectType, setObjectType] = useState(0);
+  const [objectType, setObjectType] = useState(3);
   const [time] = useState(10);
   let random = getRandomNumber(0, 640);
   let randomObject = getRandomNumber(0, 5);
   let [score, setScore] = useState(0);
-  
+ 
 
+  
+  useEffect(() =>{
+    console.log(type);
+
+  }, [objectType]);
 
 
   useEffect(()=>{
@@ -124,6 +129,7 @@ export default function PageGame() {
 
   function changeTrash(type) {
     setType(type);
+    console.log(type);
   }
 
 
