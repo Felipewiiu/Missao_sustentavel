@@ -8,12 +8,12 @@ import organicTrash from '../../assets/organicTrash.png';
 import trashGroup from './trashGroup.json';
 import { getRandomNumber } from '../../util/randomNumbers';
 import scoreUp from '../../assets/audio/1up.mp3';
+import {play1up, playfireball} from '../../util/playSong';
 
 
 export default function PageGame() {
 
   const speed = 1;
-
   const [locationTrash, setLocationTrash] = useState(10);
   const [type, setType] = useState('plasticTrash');
   const [currentImg, setCurrentImg] = useState(plasticTrash);
@@ -27,6 +27,15 @@ export default function PageGame() {
   
 
 
+
+  useEffect(()=>{
+    
+    if(locationY === 600 && locationTrash != locationX){
+      playfireball();
+    }
+
+  },[locationY]);
+
   // função de colisão
   useEffect(()=> {
     if( locationY === 540 &&  locationTrash + 20 === locationX ){
@@ -35,8 +44,9 @@ export default function PageGame() {
     } 
     
     if(locationY === 540 && locationX >= locationTrash - 45 && locationX <= locationTrash + 70) {
-      new Audio(scoreUp).play();
+      play1up();
       setScore(score +1);
+      alert();
     }
   },[locationY]);
 
@@ -53,7 +63,7 @@ export default function PageGame() {
       setLocaionY(locationY => locationY + time);
     }, 100);
 
-    locationY === 600 ? clearInterval(fallTrashInterval) & alert() : '';
+    locationY === 610 ? clearInterval(fallTrashInterval) & alert() : '';
 
     return () => clearInterval(fallTrashInterval);
 
