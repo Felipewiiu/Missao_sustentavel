@@ -2,36 +2,43 @@
     {
         "id": 0,
         "path": "../../assets/trashFaller/barrel.png",
-        "name": "barril"
+        "name": "barril",
+        "type": "ironTrash"
     },
     {
         "id": 1,
         "path": "../../assets/trashFaller/book.png",
-        "name": "livro"
+        "name": "livro",
+        "type": "paperTrash"
     },
     {
         "id": 2,
         "path": "../../assets/trashFaller/cardboard.png",
-        "name": "papelão"
+        "name": "papelão",
+        "type": "organicTrash"
     },
     {
         "id": 3,
         "path": "../../assets/trashFaller/plasticCup.png",
-        "name": "copo de platico"
+        "name": "copo de platico",
+        "type": "plasticTrash"
     },
     {
         "id": 4,
         "path": "../../assets/trashFaller/rubble.png",
-        "name": "entulho"
+        "name": "entulho",
+        "type": "organicTrash"
     },
     {
         "id": 5,
         "path": "../../assets/trashFaller/tin.png",
-        "name": "lata"
+        "name": "lata",
+        "type": "ironTrash"
     },
     {
         "id": 6,
         "path": "../../assets/trashFaller/wood.png",
-        "name": "madeira"
+        "name": "madeira",
+        "type": "organicTrash"
     }
 ]

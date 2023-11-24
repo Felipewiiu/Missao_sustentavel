@@ -7,8 +7,7 @@ import plasticTrash from '../../assets/plasticTrash.png';
 import organicTrash from '../../assets/organicTrash.png';
 import trashGroup from './trashGroup.json';
 import { getRandomNumber } from '../../util/randomNumbers';
-import scoreUp from '../../assets/audio/1up.mp3';
-import {play1up, playfireball} from '../../util/playSong';
+import {play1up, playfireball, playPowerDown} from '../../util/playSong';
 
 
 export default function PageGame() {
@@ -22,15 +21,10 @@ export default function PageGame() {
   const [objectType, setObjectType] = useState(3);
   const [time] = useState(10);
   let random = getRandomNumber(0, 640);
-  let randomObject = getRandomNumber(0, 5);
+  let randomObject = getRandomNumber(0, 6);
   let [score, setScore] = useState(0);
+  const [segundoTipo, setSegundoTipo] = useState(type);
  
-
-  
-  useEffect(() =>{
-    console.log(type);
-
-  }, [objectType]);
 
 
   useEffect(()=>{
@@ -45,13 +39,20 @@ export default function PageGame() {
   useEffect(()=> {
     if( locationY === 540 &&  locationTrash + 20 === locationX ){
       setScore(score +1);
-      console.log(score);
+      
     } 
     
     if(locationY === 540 && locationX >= locationTrash - 45 && locationX <= locationTrash + 70) {
-      play1up();
-      setScore(score +1);
-      alert();
+      
+      if(segundoTipo === trashGroup[objectType].type){
+        play1up();
+        setScore(score +1);
+        alert();
+      } else {
+        playPowerDown();
+        setScore(score - 1);
+        alert();
+      }
     }
   },[locationY]);
 
@@ -61,6 +62,7 @@ export default function PageGame() {
     setLocaionX(random);
     setLocaionY(-30);
     setObjectType(randomObject);
+    setScore(score - 1);
   };
 
   useEffect(() => {
@@ -88,6 +90,7 @@ export default function PageGame() {
   case 'organicTrash':
     setCurrentImg(organicTrash);
     setType('');
+    
     break;
 
   case 'plasticTrash':
@@ -105,6 +108,7 @@ export default function PageGame() {
     setType('');
     break;
   }
+
 
   const handleKeyDown = event => {
 
@@ -129,7 +133,9 @@ export default function PageGame() {
 
   function changeTrash(type) {
     setType(type);
-    console.log(type);
+    setSegundoTipo(type);
+
+    
   }
 
 
