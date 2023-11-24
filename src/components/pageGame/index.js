@@ -42,13 +42,19 @@ export default function PageGame() {
       setScore(score +1);
       
     } 
+
+    const reload = () => {
+      setLocaionX(random);
+      setLocaionY(-30);
+      setObjectType(randomObject);
+    };
     
     if(locationY === 540 && locationX >= locationTrash - 45 && locationX <= locationTrash + 70) {
       
-      if(segundoTipo === trashGroup[objectType].type){
+      if(segundoTipo === trashGroup[objectType].type && locationY === 540){
         play1up();
         setScore(score +1);
-        alert();
+        reload();
       } else {
         playPowerDown();
         life.pop();
