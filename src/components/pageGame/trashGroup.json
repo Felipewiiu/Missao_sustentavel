@@ -15,7 +15,7 @@
         "id": 2,
         "path": "../../assets/trashFaller/cardboard.png",
         "name": "papelão",
-        "type": "organicTrash"
+        "type": "paperTrash"
     },
     {
         "id": 3,

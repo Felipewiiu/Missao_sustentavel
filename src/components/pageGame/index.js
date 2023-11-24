@@ -8,6 +8,7 @@ import organicTrash from '../../assets/organicTrash.png';
 import trashGroup from './trashGroup.json';
 import { getRandomNumber } from '../../util/randomNumbers';
 import {play1up, playfireball, playPowerDown} from '../../util/playSong';
+import {life} from '../../data/life.tsx';
 
 
 export default function PageGame() {
@@ -50,7 +51,7 @@ export default function PageGame() {
         alert();
       } else {
         playPowerDown();
-        setScore(score - 1);
+        life.pop();
         alert();
       }
     }
@@ -159,12 +160,15 @@ export default function PageGame() {
         </div>
         <div className={Styles.container__topBar}>
           <div className={Styles.points}>
-            <p>{score} pt <br/>{locationX}  <br/>lata de lixo {locationTrash} <br/> posição X {locationX}</p>
+            <p>{score} </p>
           </div>
           <div className={Styles.heart}>
-            <Heart />
-            <Heart />
-            <Heart />
+            {
+              life.map(index => (
+                <Heart key={index} />
+              ))
+            }
+            
           </div>
 
         </div>
