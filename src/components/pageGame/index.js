@@ -9,10 +9,12 @@ import trashGroup from './trashGroup.json';
 import { getRandomNumber } from '../../util/randomNumbers';
 import {play1up, playfireball, playPowerDown} from '../../util/playSong';
 import {life} from '../../data/life.tsx';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function PageGame() {
 
+  const navigate = useNavigate();
   const speed = 1;
   const [locationTrash, setLocationTrash] = useState(10);
   const [type, setType] = useState('plasticTrash');
@@ -27,6 +29,9 @@ export default function PageGame() {
   const [segundoTipo, setSegundoTipo] = useState(type);
  
 
+  if(life.length === 0){
+    navigate('/gameOver');
+  }
 
   useEffect(()=>{
     
