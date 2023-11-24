@@ -10,6 +10,7 @@ import { getRandomNumber } from '../../util/randomNumbers';
 import {play1up, playfireball, playPowerDown} from '../../util/playSong';
 import {life} from '../../data/life.tsx';
 import { useNavigate } from 'react-router-dom';
+import lose from '../../assets/audio/lose1.mp3';
 
 
 export default function PageGame() {
@@ -29,9 +30,7 @@ export default function PageGame() {
   const [segundoTipo, setSegundoTipo] = useState(type);
  
 
-  if(life.length === 0){
-    navigate('/gameOver');
-  }
+  
 
   useEffect(()=>{
     
@@ -146,9 +145,18 @@ export default function PageGame() {
   function changeTrash(type) {
     setType(type);
     setSegundoTipo(type);
-
-    
   }
+
+  const playSong = () => {
+    new Audio(lose).play();
+  };
+
+  if(life.length === 0){
+    setTimeout(playSong, 1000);
+    navigate('/gameOver');
+  }
+
+
 
 
   return (

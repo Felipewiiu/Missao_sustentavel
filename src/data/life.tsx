@@ -1,1 +1,1 @@
-export  const life = [1, 2, 3];
+export  const life = [1];

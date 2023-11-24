@@ -6,6 +6,7 @@
     justify-content: center;
     width: 100%;
     height: 100%rem;
+    animation: gameTransition 2000ms;
 
     &__main {
         display: flex;
@@ -15,13 +16,43 @@
         height: 100%;
         background-image: url("../../assets/Fundo.svg");
 
-        p {
+        h1 {
             color: #F92727;
             font-family: $font-title;
             font-size: 4rem;
             font-style: normal;
             font-weight: 400;
             line-height: normal;
+            animation: TextTransition ease-in-out 4000ms;
         }
     }
+}
+
+
+@keyframes gameTransition {
+    0% {
+        opacity: 0%;
+        
+    }
+
+    100% {
+        opacity: 100%;
+        
+
+    }
+
+}
+
+@keyframes TextTransition {
+    0% {
+        opacity: 0%;
+        transform: scaleX(1.4);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: scaleX(1);
+
+    }
+
 }
