@@ -12,6 +12,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         width: 70%;
         height: 100%;
         background-image: url("../../assets/Fundo.svg");
@@ -24,6 +25,30 @@
             font-weight: 400;
             line-height: normal;
             animation: TextTransition ease-in-out 4000ms;
+        }
+        .try {
+            text-decoration: none;
+        }
+
+        h2 {
+            font-family: $font-title;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            padding: 1rem;
+            color: rgb(3, 78, 23);
+            background-color: $green;
+            border-radius: 25px;
+            cursor: pointer;
+            animation: homeTransition 5000ms;
+            transition: all ease-in-out;
+            
+
+            &:hover{
+                transform: scale(1.1);
+                transition: all ease-in-out 100ms;
+            }
         }
     }
 }
@@ -52,6 +77,21 @@
     100% {
         opacity: 100%;
         transform: scaleX(1);
+
+    }
+
+}
+
+@keyframes homeTransition {
+    0% {
+       transform: translateY(1000px);
+        
+        
+    }
+
+    100% {
+        transform: translatY(0px);
+      
 
     }
 

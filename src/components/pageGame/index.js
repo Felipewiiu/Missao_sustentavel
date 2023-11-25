@@ -11,6 +11,7 @@ import {play1up, playfireball, playPowerDown} from '../../util/playSong';
 import {life} from '../../data/life.tsx';
 import { useNavigate } from 'react-router-dom';
 import lose from '../../assets/audio/lose1.mp3';
+import clear from '../../assets/audio/clear.mp3';
 
 
 export default function PageGame() {
@@ -71,7 +72,7 @@ export default function PageGame() {
   // função de colisão do chão
   const alert = () => {
     setLocaionX(random);
-    setLocaionY(-30);
+    setLocaionY(-20);
     setObjectType(randomObject);
     setScore(score - 1);
   };
@@ -147,6 +148,8 @@ export default function PageGame() {
     setSegundoTipo(type);
   }
 
+
+  //Logica do game over
   const playSong = () => {
     new Audio(lose).play();
   };
@@ -154,6 +157,16 @@ export default function PageGame() {
   if(life.length === 0){
     setTimeout(playSong, 1000);
     navigate('/gameOver');
+  }
+
+  //loga do game vencedor
+
+  const playSongWiner = () => {
+    new Audio(clear).play();
+  };
+  if(score === 2){
+    setTimeout(playSongWiner, 1000);
+    navigate('/gamewiner');
   }
 
 
@@ -184,7 +197,7 @@ export default function PageGame() {
           <div className={Styles.heart}>
             {
               life.map(index => (
-                <Heart key={index} />
+                <Heart key={index} className={Styles.unit__heat} />
               ))
             }
             
