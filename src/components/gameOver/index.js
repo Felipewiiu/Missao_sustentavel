@@ -1,16 +1,13 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Styles from './gameOver.module.scss';
 
 
 
 export default function GameOver() {
 
-  const navigate = useNavigate();
+ 
   
-  const reloads = () => {
-    navigate('/');
-    
-  };
+ 
 
   return (
     <div className={Styles.container}>

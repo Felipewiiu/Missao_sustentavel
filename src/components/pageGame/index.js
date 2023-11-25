@@ -21,7 +21,7 @@ export default function PageGame() {
   const [locationTrash, setLocationTrash] = useState(10);
   const [type, setType] = useState('plasticTrash');
   const [currentImg, setCurrentImg] = useState(plasticTrash);
-  let [locationY, setLocaionY] = useState(-30);
+  let [locationY, setLocaionY] = useState(-90);
   let [locationX, setLocaionX] = useState(30);
   const [objectType, setObjectType] = useState(3);
   const [time] = useState(10);
@@ -154,7 +154,7 @@ export default function PageGame() {
     new Audio(lose).play();
   };
 
-  if(life.length === 0){
+  if(life.length === 0 || score === -5){
     setTimeout(playSong, 1000);
     navigate('/gameOver');
   }
@@ -164,7 +164,7 @@ export default function PageGame() {
   const playSongWiner = () => {
     new Audio(clear).play();
   };
-  if(score === 2){
+  if(score === 10){
     setTimeout(playSongWiner, 1000);
     navigate('/gamewiner');
   }
