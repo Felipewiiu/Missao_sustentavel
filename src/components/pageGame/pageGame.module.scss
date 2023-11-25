@@ -42,6 +42,8 @@
                 .elementos {
                     width: 4rem;
                     height: 4rem;
+                    transition: all  200ms ease-in-out;
+                    //Aqui que a logica fica maluca
                 }
             }
         }

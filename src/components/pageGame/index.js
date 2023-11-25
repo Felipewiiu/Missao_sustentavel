@@ -21,7 +21,7 @@ export default function PageGame() {
   const [locationTrash, setLocationTrash] = useState(10);
   const [type, setType] = useState('plasticTrash');
   const [currentImg, setCurrentImg] = useState(plasticTrash);
-  let [locationY, setLocaionY] = useState(-90);
+  let [locationY, setLocaionY] = useState(-350);
   let [locationX, setLocaionX] = useState(30);
   const [objectType, setObjectType] = useState(3);
   const [time] = useState(10);
