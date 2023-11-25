@@ -175,7 +175,7 @@ export default function PageGame() {
   const playSongWiner = () => {
     new Audio(clear).play();
   };
-  if(score === 10){
+  if(score === 5){
     audioRef.current.pause();
     setTimeout(playSongWiner, 1000);
     navigate('/gamewiner');

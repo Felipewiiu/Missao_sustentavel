@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from './Home.module.scss';
 import { useNavigate } from 'react-router-dom';
-import audio1 from '../../assets/audio/soundOpen.mp3';
+import audio1 from '../../assets/audio/open.mp3';
 
 export default function Home() {
   const navigate = useNavigate();

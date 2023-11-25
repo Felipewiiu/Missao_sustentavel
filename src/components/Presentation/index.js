@@ -6,7 +6,7 @@ import robo from '../../assets/robo.svg';
 import { text } from '../../data/text';
 import Next from '../../assets/Next.png';
 import { useNavigate } from 'react-router-dom';
-import open from '../../assets/audio/soundOpen.mp3';
+import open from '../../assets/audio/open.mp3';
 
 
 
