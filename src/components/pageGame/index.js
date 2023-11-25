@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef} from 'react';
 import Styles from './pageGame.module.scss';
 import { ReactComponent as Heart } from '../../assets/heart.svg';
 import PaperTrash from '../../assets/paperTrash.png';
@@ -12,10 +12,10 @@ import {life} from '../../data/life.tsx';
 import { useNavigate } from 'react-router-dom';
 import lose from '../../assets/audio/lose1.mp3';
 import clear from '../../assets/audio/clear.mp3';
+import beach from '../../assets/audio/Koopa Beach.mp3';
 
 
 export default function PageGame() {
-
   const navigate = useNavigate();
   const speed = 1;
   const [locationTrash, setLocationTrash] = useState(10);
@@ -29,9 +29,19 @@ export default function PageGame() {
   let randomObject = getRandomNumber(0, 6);
   let [score, setScore] = useState(0);
   const [segundoTipo, setSegundoTipo] = useState(type);
- 
 
-  
+  //teste de funcionalidade
+  const audioRef = useRef(new Audio(beach));
+
+  const openMusic = () => {
+    audioRef.current.play();
+    console.log('tocou a musica');
+  };
+
+  useEffect(() => {
+    setTimeout(openMusic, 1000);
+  }, []);
+ 
 
   useEffect(()=>{
     
@@ -155,6 +165,7 @@ export default function PageGame() {
   };
 
   if(life.length === 0 || score === -5){
+    audioRef.current.pause();
     setTimeout(playSong, 1000);
     navigate('/gameOver');
   }
@@ -165,6 +176,7 @@ export default function PageGame() {
     new Audio(clear).play();
   };
   if(score === 10){
+    audioRef.current.pause();
     setTimeout(playSongWiner, 1000);
     navigate('/gamewiner');
   }

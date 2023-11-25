@@ -8,7 +8,7 @@ export default function Home() {
 
   const openMusic = () => {
     navigate('/presentation');
-    new Audio(audio1).play();
+    // new Audio(audio1).play();
   };
 
   return (
